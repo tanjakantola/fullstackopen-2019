@@ -1,0 +1,27 @@
+note over Selain :
+Selain pyytää muistiinpanojen sivun
+end note
+Selain -> Palvelin : HTTP GET https://fullstack-exampleapp.herokuapp.com/notes
+Palvelin --> Selain : HTML code
+note over Selain:
+Muistiinpanojen sivun HTML-koodin head-osio sisältää link-tagin, 
+joka määrittelee, että selaimen tulee ladata palvelimelta 
+osoitteesta main.css sivulla käytettävä CSS-tyylitiedosto.
+end note
+Selain -> Palvelin : HTTP GET https://fullstack-exampleapp.herokuapp.com/main.css
+Palvelin --> Selain : main.css
+note over Selain:
+HTML-koodin head-osio sisältää script-tagin, 
+jonka ansiosta selain lataa spa.js-nimisen JavaScript-tiedoston palvelimelta.
+end note
+Selain -> Palvelin : HTTP GET https://fullstack-exampleapp.herokuapp.com/spa.js
+Palvelin --> Selain : spa.js
+note over Selain:
+Selain alkaa suorittaa js-koodia,
+joka pyytää JSON-datan palvelimelta
+end note
+Selain -> Palvelin : HTTP GET https://fullstack-exampleapp.herokuapp.com/data.json
+Palvelin --> Selain : data.json
+note over Selain:
+Selain näyttää muistiinpanot (data.json)
+end note

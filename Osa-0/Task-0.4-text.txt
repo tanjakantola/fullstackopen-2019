@@ -1,0 +1,26 @@
+Selain -> Palvelin : HTTP POST https://fullstack-exampleapp.herokuapp.com/new_note
+note over Palvelin :
+Palvelin kehottaa selainta tekemään automaattisesti uuden HTTP GET -pyynnön 
+osoitteeseen notes
+end note
+Palvelin --> Selain : 302 redirect to /notes 
+note over Selain :
+Selain pyytää uudelleen muistiinpanojen sivun
+end note
+Selain -> Palvelin : HTTP GET https://fullstack-exampleapp.herokuapp.com/notes
+Palvelin --> Selain : HTML code
+note over Selain:
+Muistiinpanojen sivun HTML-koodin head-osio sisältää link-tagin, 
+joka määrittelee, että selaimen tulee ladata palvelimelta 
+osoitteesta main.css sivulla käytettävä CSS-tyylitiedosto.
+end note
+Selain -> Palvelin : HTTP GET https://fullstack-exampleapp.herokuapp.com/main.css
+Palvelin --> Selain : main.css
+Selain -> Palvelin : HTTP GET https://fullstack-exampleapp.herokuapp.com/main.js
+Palvelin --> Selain : main.js
+note over Selain:
+Selain alkaa suorittaa js-koodia,
+joka pyytää JSON-datan palvelimelta
+end note
+Selain -> Palvelin : HTTP GET https://fullstack-exampleapp.herokuapp.com/data.json
+Palvelin --> Selain : data.json
