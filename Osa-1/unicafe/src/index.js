@@ -39,15 +39,15 @@ const Statistics = ({good, neutral, bad}) => {
     let average = (good + bad * (-1)) / total;
     let positive = (good / total) * 100;
    
-    if(total!==0)
+    if(total > 0)
     return(
       <div>
-      <div>Good: {good}</div>
-      <div>Neutral: {neutral}</div>
-      <div>Bad: {bad}</div>
-      <div>Total number of feedbacks: {total}</div>
-      <div>Average evaluation: {average}</div>
-      <div>Percentage of positive feedback: {positive}</div>
+      <Statistic text="Good: " value={good} />
+      <Statistic text="Neutral: " value={neutral} />
+      <Statistic text="Bad: " value={bad} />
+      <Statistic text="Total number of feedbacks: " value={total} />
+      <Statistic text="Average evaluation: " value={average} />
+      <Statistic text="Percentage of positive feedback: " value={positive} />
       </div>
     )
     return(
@@ -62,6 +62,14 @@ const Statistics = ({good, neutral, bad}) => {
       {text}
     </button>
   )
+
+  const Statistic = ({text, value}) => {
+    return (
+      <div>
+        {text} {value}
+      </div>
+    )
+  }
   
 ReactDOM.render(<App />, 
   document.getElementById('root')
